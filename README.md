@@ -1,5 +1,7 @@
 # Usage
 
+You need `httpie` and `jq`, so `sudo apt-get install httpie jq` if needed.
+
 ## Download your world from Realms
 
 ```
@@ -39,18 +41,20 @@ As an admin I want small, simple tools that are easy to understand and adapt for
 
 There are amazing tools out there like [yggdrasil](https://github.com/zekesonxx/node-yggdrasil), but they carry a ton of baggage (i.e. 67 npm packages).
 
-The point of REST APIs is to be simple and accessible without advanced tools. For these scripts you'll need just
-You will need two tools: [httpie](https://httpie.org/) and [jq](https://stedolan.github.io/jq/). Both are indispensable for dealing with JSON.
+The point of REST APIs is to be simple and accessible without advanced tools. For these scripts you just need [httpie](https://httpie.org/) and [jq](https://stedolan.github.io/jq/). Both are indispensable for dealing with JSON.
 
 # Understanding Realms
 
-The backups listed in the game client are the only backups that exist. The 'download latest' button just selects the one at the top.
-You can see this list in raw JSON with a `GET ${realms_server}/worlds/${world_id}/backups`.
+The backups listed in the game client are the only backups that exist. The 'download latest' button just selects the one at the top, downloads it and extracts into your `$HOME/.minecraft/saves` with the correct world name.
+
+You can see the same backup list in raw JSON with `GET ${realms_server}/worlds/${world_id}/backups`.
+
+## Timestamps
 
 Each backup has a timestamp. This timestamp is shown when you play the backup in Singleplayer.
 
 If you 'download latest' from the game, and download latest from the API (e.g. using `realms-download.sh`), the archive you receive is not exactly the same.
 
-For some reason the archive downloaded through the game client will have backup contents *touched* to set all timestamps to now. However when played in Singleplayer, the true timestamp is shown.
+For some reason the archive downloaded through the game client will have backup contents *touched* to set all timestamps to now. However when played in singleplayer, the true timestamp is shown.
 
 It's not clear how you can access an earlier backup (not the latest) through the API.
