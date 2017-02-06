@@ -1,4 +1,6 @@
-# Usage
+Simple tools for server admins.
+
+# You need
 
 You need `httpie` and `jq`, so `sudo apt-get install httpie jq` if needed.
 
