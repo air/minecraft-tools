@@ -2,7 +2,7 @@
 # you need httpie and jq (apt-get install httpie jq)
 
 if [ "${BASH_SOURCE}" == "${0}" ];then
-  echo "WARNING: You should run this script using 'source' to export your access tokens."
+  echo "WARNING: You should run this script using 'source' to export your access token and ID."
 fi
 
 user=$1
@@ -10,7 +10,6 @@ password=$2
 
 if [ -z ${user} ] || [ -z ${password} ];then
   echo "Usage: source login.sh <email> <password>"
-  echo "You must run using 'source' to export the variables access_token, name and id."
 else
   auth_server=https://authserver.mojang.com
   client_token=github.com/air/minecraft-tools
