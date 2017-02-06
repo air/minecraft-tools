@@ -1,10 +1,6 @@
-Simple tools for server admins.
+Simple and scriptable tools for Minecraft server admins.
 
-# You need
-
-You need `httpie` and `jq`, so `sudo apt-get install httpie jq` if needed.
-
-## Download your world from Realms
+# Download your world from Realms
 
 ```
 source login.sh EMAIL PASSWORD
@@ -14,6 +10,10 @@ realms-download.sh
 This downloads the latest backup of your currently active world to `world.tar.gz`.
 No local install of Minecraft is needed. You're now free to run [Overviewer](https://overviewer.org/) or whatever you want.
 
+## You'll need
+
+You need `httpie` and `jq`, so `sudo apt-get install httpie jq` if needed.
+
 ## Validate your current access token
 
 When you login, your access token is displayed and stored in the environment variable `access_token`. The token means you don't have to keep logging in (and risk rate-limiting), but eventually it expires.
@@ -22,7 +22,7 @@ You can validate your access token at any time with
 validate.sh $access_token
 ```
 
-# Logging in
+# Understanding logins
 
 We run the login script with `source` to set three environment variables for the other tools to pick up:
 - `access_token`, e.g. `14fc1a392727462fa35e0d82e138aef1`
