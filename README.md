@@ -3,8 +3,8 @@ Simple and scriptable tools for Minecraft server admins.
 # Download your world from Realms
 
 ```
-source login.sh EMAIL PASSWORD
-realms-download.sh
+$ source login.sh EMAIL PASSWORD
+$ realms-download.sh
 ```
 
 This downloads the latest backup of your currently active world to `world.tar.gz`.
@@ -19,7 +19,7 @@ You need `httpie` and `jq`, so `sudo apt-get install httpie jq` if needed.
 When you login, your access token is displayed and stored in the environment variable `access_token`. The token means you don't have to keep logging in (and risk rate-limiting), but eventually it expires.
 You can validate your access token at any time with
 ```
-validate.sh $access_token
+$ validate.sh $access_token
 ```
 
 # Understanding logins
