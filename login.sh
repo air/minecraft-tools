@@ -2,7 +2,8 @@
 # you need httpie and jq (apt-get install httpie jq)
 
 if [ "${BASH_SOURCE}" == "${0}" ];then
-  echo "WARNING: You should run this script using 'source' to export your access token and ID."
+  echo "Exiting - you should run this script using 'source' to export your access token and ID."
+  exit
 fi
 
 user=$1
@@ -17,7 +18,7 @@ else
   response=$(http --check-status --ignore-stdin POST ${auth_server}/authenticate username=${user} password=${password} clientToken=${client_token} agent:='{"name": "Minecraft", "version": 1}')
   if [ $? -ne 0 ];then
     echo "Error authenticating, response: ${response}"
-    exit 1
+    return 1
   fi
 
   # parse details from the JSON response and strip off double quotes
