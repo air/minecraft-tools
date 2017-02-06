@@ -29,7 +29,7 @@ if [ $? -ne 0 ];then
   echo "Error getting download link, response: ${response}"
   exit 2
 fi
-url=$(echo ${response} | jq .downloadLink | sed 's/"//g')
+url=$(echo ${response} | jq -r .downloadLink)
 
 # 3. download backup
 http --check-status --ignore-stdin --body --download --output ${output_file} ${url}

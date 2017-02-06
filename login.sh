@@ -21,10 +21,10 @@ else
     return 1
   fi
 
-  # parse details from the JSON response and strip off double quotes
-  export access_token=$(echo ${response} | jq .accessToken | sed 's/"//g')
-  export name=$(echo ${response} | jq .selectedProfile.name | sed 's/"//g')
-  export id=$(echo ${response} | jq .selectedProfile.id | sed 's/"//g')
+  # parse details from the JSON response
+  export access_token=$(echo ${response} | jq -r .accessToken)
+  export name=$(echo ${response} | jq -r .selectedProfile.name)
+  export id=$(echo ${response} | jq -r .selectedProfile.id)
 
   echo access token: ${access_token}
   echo name: ${name}
