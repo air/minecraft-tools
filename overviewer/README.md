@@ -16,7 +16,7 @@ Edit `render-config.py` with the location of your world, then:
 
 # 4. Done! Admire your map
 
-Open up `index.html` in the output location (if you didn't edit, it's `/tmp/myworld`).
+Open up `index.html` in the output location (if you didn't edit, it's `/tmp/myworld-map`).
 
 # 5. Add a Google Maps API key (optional)
 
