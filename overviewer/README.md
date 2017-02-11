@@ -10,13 +10,13 @@ If you haven't run Minecraft on this machine, you need to grab the client jar fr
 
 # 3. Run Overviewer
 
-Edit `render-config.py` with the location of your world, then:
+Edit `render-config.py` with the location of your world (default `/tmp/world`), then:
 
 `overviewer.py --config=render.py`
 
 # 4. Done! Admire your map
 
-Open up `index.html` in the output location (if you didn't edit, it's `/tmp/myworld-map`).
+Open up `index.html` in the output location (default `/tmp/world-map`).
 
 # 5. Add a Google Maps API key (optional)
 

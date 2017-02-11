@@ -1,4 +1,4 @@
-worlds["myworld"] = "/path/to/your/world"
+worlds["myworld"] = "/tmp/world"
 
 renders["daytime"] = {
     "world": "myworld",
@@ -9,4 +9,4 @@ renders["daytime"] = {
     "defaultzoom": "2"
 }
 
-outputdir = "/tmp/myworld-map"
+outputdir = "/tmp/world-map"
