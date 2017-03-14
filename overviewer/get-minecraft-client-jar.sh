@@ -11,4 +11,5 @@ version=$(echo $json | jq -r '.versions[] | select (.type == "release") | .id' |
 
 # download jar straight to where we need it
 download_host=https://s3.amazonaws.com/Minecraft.Download/versions
+mkdir -p ~/.minecraft/versions/${version}/
 curl --output ~/.minecraft/versions/${version}/${version}.jar ${download_host}/${version}/${version}.jar
