@@ -1,4 +1,4 @@
-Simple and scriptable tools for Minecraft server admins.
+Simple and scriptable tools for Minecraft server admins. [Read my blog post for the full story](http://www.aaronbell.com/how-to-create-overviewer-maps-from-minecraft-realms/).
 
 # Download your world from Realms
 
