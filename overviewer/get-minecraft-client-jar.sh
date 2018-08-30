@@ -7,8 +7,12 @@
 json=$(curl --silent https://launchermeta.mojang.com/mc/game/version_manifest.json)
 
 # filter out snapshots; assume the latest version is at the top
-version=$(echo $json | jq -r '.versions[] | select (.type == "release") | .id' | head -1)
-echo "Latest version: $version"
+#version=$(echo $json | jq -r '.versions[] | select (.type == "release") | .id' | head -1)
+#echo "Latest version: $version"
+
+# Overviewer doesn't support 1.13+ yet, https://github.com/overviewer/Minecraft-Overviewer/issues/1454
+version=1.12.2
+echo "Forcing version ${version}, Overviewer doesn't support 1.13+ yet."
 
 # select out the packages URL for that version
 packages_url=$(echo $json | jq -r ".versions[] | select (.id == \"${version}\") | .url")
