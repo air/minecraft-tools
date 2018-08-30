@@ -8,11 +8,19 @@ json=$(curl --silent https://launchermeta.mojang.com/mc/game/version_manifest.js
 
 # filter out snapshots; assume the latest version is at the top
 version=$(echo $json | jq -r '.versions[] | select (.type == "release") | .id' | head -1)
+echo "Latest version: $version"
+
+# select out the packages URL for that version
+packages_url=$(echo $json | jq -r ".versions[] | select (.id == \"${version}\") | .url")
+echo "Metadata URL: $packages_url"
+
+packages_json=$(curl --silent $packages_url)
+client_url=$(echo $packages_json | jq --raw-output .downloads.client.url)
+echo "Client jar URL: $client_url"
 
 # download jar straight to where we need it
-download_host=https://s3.amazonaws.com/Minecraft.Download/versions
 mkdir -p ~/.minecraft/versions/${version}/
-curl -# -f --output ~/.minecraft/versions/${version}/${version}.jar ${download_host}/${version}/${version}.jar
+curl -# -f --output ~/.minecraft/versions/${version}/${version}.jar ${client_url}
 status=$?
 if [ $status -ne 0 ];then
   echo "Error getting the client jar, curl returned: $status"
