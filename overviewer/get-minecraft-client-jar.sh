@@ -12,4 +12,10 @@ version=$(echo $json | jq -r '.versions[] | select (.type == "release") | .id' |
 # download jar straight to where we need it
 download_host=https://s3.amazonaws.com/Minecraft.Download/versions
 mkdir -p ~/.minecraft/versions/${version}/
-curl --output ~/.minecraft/versions/${version}/${version}.jar ${download_host}/${version}/${version}.jar
+curl -# -f --output ~/.minecraft/versions/${version}/${version}.jar ${download_host}/${version}/${version}.jar
+status=$?
+if [ $status -ne 0 ];then
+  echo "Error getting the client jar, curl returned: $status"
+  exit 1
+fi
+echo "Downloaded jar to ~/.minecraft/versions/${version}/${version}.jar"
