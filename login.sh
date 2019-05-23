@@ -1,7 +1,7 @@
 #!/bin/bash
 # you need httpie and jq (apt-get install httpie jq)
 
-if [ "${BASH_SOURCE}" == "${0}" ];then
+if [ "${BASH_SOURCE}" = "${0}" ];then
   echo "Exiting - you should run this script using 'source' to export your access token and ID."
   exit
 fi
