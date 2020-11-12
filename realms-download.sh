@@ -10,7 +10,7 @@ fi
 
 backup_number="${1:-1}"
 output_file=world.tar.gz
-realms_server=https://mcoapi.minecraft.net
+realms_server=https://pc.realms.minecraft.net
 version=1.11.2
 
 cookie_string="Cookie:sid=token:${access_token}:${id};user=${name};version=${version}"
